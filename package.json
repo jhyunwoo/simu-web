@@ -6,14 +6,19 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:push": "drizzle-kit generate && drizzle-kit migrate",
+    "db:pull": "drizzle-kit pull",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.57.2",
+    "dotenv": "^17.2.2",
     "drizzle-orm": "^0.44.5",
     "next": "15.5.2",
     "postgres": "^3.4.7",
+    "prettier": "^3.6.2",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },

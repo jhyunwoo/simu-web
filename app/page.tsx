@@ -1,6 +1,14 @@
 import Image from "next/image";
+import { cookies } from "next/headers";
+import { createClient } from "@/lib/superbase/server";
 
-export default function Home() {
+export default async function Home() {
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+
+  let { data: todos, error } = await supabase.from("todos").select("*");
+  console.log(todos, error);
+
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
